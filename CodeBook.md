@@ -1,4 +1,4 @@
-# Coursera GettingData Programming Assignment 
+# Coursera Getting Data Programming Assignment 
 # 
 
 
