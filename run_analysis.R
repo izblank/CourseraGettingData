@@ -36,6 +36,7 @@ finalset<-data.table(  ##combine two sets along with activities and subjects
     rbind(testactivity, trainactivity) 
     )%>%  
     ##pipe to variable selection - only select columns with "mean" or "std" in the names, 
+    ##meanFreq is also considered a valid mean function
     ##but exclude angles, these are not mean or std despite the name
     select(subjectid, activityid,
            ##here we rely on measurement columns coming before subject and activity
@@ -56,7 +57,8 @@ averaged<-melt(finalset, id.vars = c("subjectid", "activityName"), variable.fact
     summarize(meanvalue=mean(value))
 
 ##measurement names are actually a combination of 3 things: actual measurement, averaging method applied, and optionally axis,
-## so let;s split the column
+## so let's split the column
+## also, that means we're going for narrow version of tidy data
 tidyset<-separate(averaged,variable, into=c("measure", "functionapplied", "axis"), fill="right")   
 
 ##if the last part (axis) is missing, I want it to be NA rather than empty string
