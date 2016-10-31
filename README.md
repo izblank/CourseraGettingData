@@ -32,3 +32,6 @@ As one can see from the features_info.txt file, the column names themselves cont
   
   Therefore, the *averaged$variable* column is being split into three:  actual measurement, function applied, and axis.  For scalar measurement axis does not exist, so the corresponding value is set to **NA**
   
+ ### Narrow versus wide consideration
+ Main reason for staying "narrow" was a mix of 3-dimensional and scalar observations.  In the narrow form, the 3-dimentional one would need "X-mean", "Y-mean", and "Z-mean" columns, whereas scalar observation would need "scalar-mean".  This would essentially be two separate data sets combined into one, wich would make it untidy
+  
